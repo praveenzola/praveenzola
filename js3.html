@@ -120,7 +120,6 @@
         let dig1=Number(document.getElementById('rever1').value)
         let ans21=dig1.toString().split('').reverse().join('');
         document.getElementById('answer1').innerHTML=ans21;
-
     }
     function single12(){
         let n1=Number(document.getElementById('digit1').value);
@@ -165,8 +164,7 @@
                 answer="ERROR"
             }
             document.getElementById('ans1').innerHTML=answer;
-
-        }
+         }
         function billing1(){
             let amt=Number(document.getElementById('billamt1').value);
             let totalamt='';
@@ -357,7 +355,6 @@
         }
         document.getElementById('inform1').innerHTML=calc1;
     }
-
     function alpha1(){
         var alpha11=document.getElementById('vowels1').value;
         let cha11='';
@@ -379,12 +376,9 @@
                 break;
             default:
                 cha11="It Is NOT"
-
-        }
+            }
         document.getElementById('vowels12').innerHTML=cha11;
-
-
-    }
+     }
     function mon12(){
         let month21=document.getElementById('months1').value;
         let days21='';
@@ -427,9 +421,7 @@
                 break;
             }
             document.getElementById('nofodays1').value=days21;
-
-
-    }
+         }
     function weeknd1(){
         let z1=Number(document.getElementById('weekno1').value);
         let days2='';
@@ -476,21 +468,30 @@
 
 
 <u><ul><h2>HOME_PRODUCTS_CONTROLLER</h3></ul></u><br><br>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col"></div>
-        <div class="col"><div id="lightcon1"></div></div>
+        <div class="col"></div>
+        <div class="col"><div id="lightcon1">__LIGHT_1</div></div>
+        <div class="col"></div>
         <div class="col"></div>
     </div><br><br><br>
     <div class="row mt-4">
         <div class="col"></div>
-        <div class="col"> <div id="fan1con"></div> </div>
-        <div class="col"> <div id="fan2con"></div> </div>
+        <div class="col"><div id="maincon1">__MAIN_LINE___</div></div>
+        <div class="col"></div>
+        <div class="col"> <div id="fan1con">FAN_1</div> </div><br>
+        <div class="col"> <div id="fan2con">FAN_2</div> </div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
         <div class="col"></div>
     </div><br><br><br>
     <div class="row">
         <div class="col"></div>
-        <div class="col"><div id="tvcon1"></div></div>
+        <div class="col"></div>
+        <div class="col"><div id="tvcon1">TV_1</div></div>
+        <div class="col"></div>
         <div class="col"></div>
     </div><br><br>
     <div class="row">
@@ -499,18 +500,28 @@
             <button class="btn btn-warning" onclick="islight_on()">LIGHT</button>--
             <button class="btn btn-primary" onclick="tvswitch()">TV</button><br><br>
             <button class="btn btn-danger" onclick="fan1switch()">FAN1</button>--
-            <button class="btn btn-dark" onclick="fan2switch()">FAN2</button>
+            <button class="btn btn-dark" onclick="fan2switch()">FAN2</button><br><br>
+            <button class="btn btn-info" onclick="ismain1_line()">((MAIN_LINE))</button>
         </div>
         <div class="col"></div>
     </div>
 </div><br><br><br><br><br><br>
     <style>
+        #maincon1{
+            width:200px;
+            height:60px;
+            border: solid 3px;
+            border-color:darkmagenta;
+            background-color:blue;
+            font-size: 20px;
+        }
         #lightcon1{
-            width:250px;
-            height:40px;
+            width:350px;
+            height:50px;
             border: solid 3px;
             border-color: black;
             background-color: grey;
+            font-size: 20px;
         }
         #fan1con,#fan2con{
             width:200px;
@@ -519,6 +530,7 @@
             border: solid 4px;
             border-color: cyan;
             background-color: red;
+            font-size: 20px;
         }
         #tvcon1{
             width:200px;
@@ -526,6 +538,7 @@
             border: solid 5px;
             border-color:indigo;
             background-color: grey;
+            font-size: 40px;
 
         }
     </style>
@@ -534,17 +547,46 @@
     var fan1;
     var fan2;
     var tv1;
+    var main1;
     var islight1=false;
     var isfan1_on=false;
     var isfan2_on=false;
     var istv_on=false;
+    var ismain1=false;
     function gettheinput(){
         light1=document.getElementById('lightcon1');
         fan1 = document.getElementById('fan1con');
         fan2 = document.getElementById('fan2con');
         tv1= document.getElementById('tvcon1');
+        main1= document.getElementById('maincon1');
+
     }
     gettheinput();
+    function ismain1_line(){
+        if(ismain1){
+            main1.style.backgroundColor="blue";
+            // light1.style.backgroundColor="grey";
+            // tv1.style.backgroundColor="grey";
+            // fan1.style.backgroundColor="red";
+            // fan2.style.backgroundColor="red";
+            islight1=false;
+            isfan1_on=false;
+            isfan2_on=false;
+            istv_on=false;
+            ismain1=false;
+        }else{
+            main1.style.backgroundColor="cyan";
+            islight1=true;
+            isfan1_on=true;
+            isfan2_on=true;
+            istv_on=true;
+            // light1.style.backgroundColor="cyan";
+            // tv1.style.backgroundColor="white";
+            // fan1.style.backgroundColor="orange";
+            // fan2.style.backgroundColor="pink";
+            ismain1=true;
+        }
+    }
     function islight_on(){
         if(islight1){
             light1.style.backgroundColor="grey";
@@ -559,7 +601,7 @@
             tv1.style.backgroundColor="grey";
             istv_on=false;
         }else{
-            tv1.style.backgroundColor="orange";
+            tv1.style.backgroundColor="white";
             istv_on=true;
         }
         }
@@ -583,9 +625,7 @@
         }
 </script>
 
-<!-- 
-///////////===========?????????/////////==========????????////////////============= -->
-
+<!-- ///////////===========?????????/////////==========????????////////////============= -->
 <u><ul><h2>TARFFIC SIGNALS FOR 8_DIRECTIONS</h3></ul></u><br><br>
 <div class="container-fluid">
     <div class="row mt-4">
@@ -643,11 +683,10 @@
             <button  class=" btn btn-info" onclick="ineast_on()">--EAST--</button> <<(())>>
             <button type="button" class="btn btn-primary" onclick="iswest_on()">--WEST--</button><br><br>
             <button type="button" class="btn btn-warning" onclick="isnorth()">--NORTH--</button> <<(())>>
-            <button type="button" class="btn btn-success" onclick="issouth()">--SOUTH--</button>
-        </div>
+            <button type="button" class="btn btn-success" onclick="issouth()">--SOUTH--</button></div>
         <div class="col"></div>
         <div class="col"></div> -->
-</div>
+    </div>
 <style>
     #react1,#react2{
         width:100px;
@@ -700,20 +739,20 @@
             eastsouth1.style.backgroundColor="red";
             west_bott1.style.backgroundColor="red";
             westnorth1.style.backgroundColor="red";
-            // westsouth1.style.backgroundColor="green";
-            // west_top1.style.backgroundColor="green";
-            // east_top1.style.backgroundColor="green";
-            // eastnorth1.style.backgroundColor="green";
+            westsouth1.style.backgroundColor="green";
+            west_top1.style.backgroundColor="green";
+            east_top1.style.backgroundColor="green";
+            eastnorth1.style.backgroundColor="green";
             iseast1=false;
         }else{
             east_bott1.style.backgroundColor="green";
             eastsouth1.style.backgroundColor="green";
             west_bott1.style.backgroundColor="green";
             westnorth1.style.backgroundColor="green";
-            // // westsouth1.style.backgroundColor="red";
-            // // west_top1.style.backgroundColor="red";
-            // // east_top1.style.backgroundColor="red";
-            // eastnorth1.style.backgroundColor="red";
+            westsouth1.style.backgroundColor="red";
+            west_top1.style.backgroundColor="red";
+            east_top1.style.backgroundColor="red";
+            eastnorth1.style.backgroundColor="red";
             iseast1=true;
             }
         }
@@ -723,20 +762,20 @@
             eastsouth1.style.backgroundColor="red";
             east_top1.style.backgroundColor="red";
             westnorth1.style.backgroundColor="red";
-            // west_bott1.style.backgroundColor="green";
-            // eastnorth1.style.backgroundColor="green";
-            // east_bott1.style.backgroundColor="green";
-            // westsouth1.style.backgroundColor="green";
+            west_bott1.style.backgroundColor="green";
+            eastnorth1.style.backgroundColor="green";
+            east_bott1.style.backgroundColor="green";
+            westsouth1.style.backgroundColor="green";
             iswest1=false;
         }else{
             west_top1.style.backgroundColor="green";
             eastsouth1.style.backgroundColor="green";
             east_top1.style.backgroundColor="green";
             westnorth1.style.backgroundColor="green";
-            // west_bott1.style.backgroundColor="red";
-            // eastnorth1.style.backgroundColor="red";
-            // east_bott1.style.backgroundColor="red";
-            // westsouth1.style.backgroundColor="red";
+            west_bott1.style.backgroundColor="red";
+            eastnorth1.style.backgroundColor="red";
+            east_bott1.style.backgroundColor="red";
+            westsouth1.style.backgroundColor="red";
             iswest1=true;
             }
         } 
@@ -746,20 +785,20 @@
             eastsouth1.style.backgroundColor="red";
             east_top1.style.backgroundColor="red";
             eastnorth1.style.backgroundColor="red";
-            // west_top1.style.backgroundColor="green";
-            // east_bott1.style.backgroundColor="green";
-            // westnorth1.style.backgroundColor="green";
-            // westsouth1.style.backgroundColor="green";
+            west_top1.style.backgroundColor="green";
+            east_bott1.style.backgroundColor="green";
+            westnorth1.style.backgroundColor="green";
+            westsouth1.style.backgroundColor="green";
             isnorth1=false;
         }else{
             west_bott1.style.backgroundColor="green";
             eastsouth1.style.backgroundColor="green";
             east_top1.style.backgroundColor="green";
             eastnorth1.style.backgroundColor="green";
-            // west_top1.style.backgroundColor="red";
-            // east_bott1.style.backgroundColor="red";
-            // westnorth1.style.backgroundColor="red";
-            // westsouth1.style.backgroundColor="red";
+            west_top1.style.backgroundColor="red";
+            east_bott1.style.backgroundColor="red";
+            westnorth1.style.backgroundColor="red";
+            westsouth1.style.backgroundColor="red";
             isnorth1=true;
             }
         }
@@ -769,24 +808,23 @@
             westnorth1.style.backgroundColor="red";
             east_top1.style.backgroundColor="red";
             westsouth1.style.backgroundColor="red";
-            // eastnorth1.style.backgroundColor="green";
-            // eastsouth1.style.backgroundColor="green";
-            // west_top1.style.backgroundColor="green";
-            // east_bott1.style.backgroundColor="green";
+            eastnorth1.style.backgroundColor="green";
+            eastsouth1.style.backgroundColor="green";
+            west_top1.style.backgroundColor="green";
+            east_bott1.style.backgroundColor="green";
             issouth1=false;
         }else{
             west_bott1.style.backgroundColor="green";
             westnorth1.style.backgroundColor="green";
             east_top1.style.backgroundColor="green";
             westsouth1.style.backgroundColor="green";
-            // eastnorth1.style.backgroundColor="red";
-            // eastsouth1.style.backgroundColor="red";
-            // west_top1.style.backgroundColor="red";
-            // east_bott1.style.backgroundColor="red";
+            eastnorth1.style.backgroundColor="red";
+            eastsouth1.style.backgroundColor="red";
+            west_top1.style.backgroundColor="red";
+            east_bott1.style.backgroundColor="red";
             issouth1=true;
             }
         }
-
 </script>
 </body>
 </html>
