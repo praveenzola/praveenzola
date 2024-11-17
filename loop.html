@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2>LOOP STATEMENT CODES</h2><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p id="result1"></p><br>
+            </div><br><br>
+            <div class="col"> 
+                <h3>Range Numbers</h3><br><br>   
+                <input type="text" class="form-control" id="text1" /><br><br>
+                <input type="text" class="form-control" id="text2" /><br>
+                <button onclick="task1loop()" class="btn btn-danger">SUBMIT</button><br><br>
+                <p id="result11"></p>
+            </div><br><br>
+            <div class="col"></div>
+            <div class="col">
+                <h3>multiplication of 5</h3><br><br>
+                <button onclick="multiloop()" class="btn btn-primary">RUN</button><br><br>
+                <p id="answer12"></p>
+            </div>
+            <div class="col"></div>
+            <div class="col">
+                <h3>Range Numbers with multiplication</h3><br><br>
+                num_1:<input type="text" class="form-control" id="numb1" /><br>
+                num_2:<input type="text" class="form-control" id="numb2" /><br>
+                Multiple_By:<input type="text" class="form-control" id="multi11" /><br>
+                <button onclick="loopwithrange()" class="btn btn-warning">Calculate</button><br><br>
+                <p id="result21"></p>
+            </div>
+        </div>
+    </div><br><br>
+<script>
+    function loopwithrange(){
+        let n1=Number(document.getElementById('numb1').value);
+        let n2=Number(document.getElementById('numb2').value);
+        let multi=Number(document.getElementById('multi11').value);
+        let ans11='';
+        for(;n1<=n2;n1++){
+            ans11+=n1+"*"+multi+"="+n1*multi+"<br>";
+            if(n1==0 && multi==0){
+                ans11="ERROR";    
+            }
+        }
+        for(;n2<=n1;n2++){
+            ans11+=n2+"*"+multi+"="+n2*multi+"<br>";
+            if(n2==0 && multi==0){
+                ans11="ERROR";
+            }
+        }
+        // if(n1==0 && n2==0){
+        //     ans11="ERROR";
+        // }
+        document.getElementById('result21').innerHTML=ans11;
+    }
+    function multiloop(){
+        let result12='';
+        for(let i=1;i<=10;i++){
+            console.log(i);
+            result12+="5*"+i+"="+i*5+"<br>";
+        }
+        document.getElementById('answer12').innerHTML=result12;
+    }
+    console.log("hi")
+    function loopstatement(){
+        let result=" ";
+        for(let n=1;n<=10;n++){
+            console.log(n);
+            result+=n+"<br>";
+        }
+        document.getElementById('result1').innerHTML=result;
+    }
+    loopstatement();
+    function task1loop(){
+        let a1=Number(document.getElementById('text1').value);
+        let a2=Number(document.getElementById('text2').value);
+        let answer='';
+        for(;a1<=a2;a1++){
+            console.log(a1);
+            answer+=a1+"<br>";
+            if(a1==0){
+            answer="No Result";
+        }
+        }
+        for(;a2<=a1;a2++){
+            console.log(a2);        
+            answer+=a2+"<br>";
+            if(a2==0){
+            answer="No Result";
+        }
+        }
+        document.getElementById('result11').innerHTML=answer;
+        }
+        task1loop();
+</script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h3>REVERSE THE DIGIT</h3><br>
+            <input type="number" class="form-control" id="text11" placeholder="enter the number to reverse"/><br><br>
+            <button class="btn btn-dark" onclick="reversenum1()">REVERSE</button><br><br>
+            <p id="answer101"></p>
+        </div>
+        <div class="col">
+            <h3>FIND THE ODD NO. IN RANGE</h3><br>
+            no.1:<input type="text" class="form-control" id="odd1"/>
+            no.2:<input type="text" class="form-control" id="odd2"/><br><br>
+            <button class="btn btn-success" onclick="oddno1()">RESULT</button><br><br>
+            <p id="oddreslut1"></p>
+        </div>
+        <div class="col">
+            <h3>SINGLE DIGIT</h3><br>
+            <input type="text" class="form-control" id="number11"/><br>
+            <button class="btn btn-info" onclick="singlenum1()">NEUTRALIZE</button><br><br>
+            <p id="neutra1"></p>
+        </div>
+        <div class="col">
+          <u><h3>FACTORiAL</h3><br></u>
+          <input type="number" class="form-control" id="fact11" placeholder="enter the number"/><br>
+          <button class="btn btn-secondary" onclick="factorial1()">*ENTER*</button><br><br>
+          <input type="number" class="form-control" id="factans1" placeholder="RESULT" disabled/>
+        </div>
+    </div>
+    <script>
+        function factorial1(){
+            let fact1=Number(document.getElementById('fact11').value);
+            let ansnum1=1;
+            for(let x=2;x<=fact1;x++){
+                ansnum1*=x;
+            }
+            document.getElementById('factans1').value=ansnum1;
+        }
+        function singlenum1(){
+            let num11=Number(document.getElementById('number11').value);
+            let neu1='';
+            let moduVal = 0;
+            while(num11 != 0){
+                console.log("Before Num : " +num11 + " Modu :" + moduVal);
+                moduVal += num11 % 10;
+                num11 = Math.floor(num11 /10);
+                console.log("After Num : " +num11 + " Modu :" + moduVal);
+                if(num11 == 0 && moduVal > 9){
+                    num11 = moduVal;
+                    moduVal = 0;
+                }
+            }
+            document.getElementById('neutra1').innerHTML = moduVal;
+        }
+        function oddno1(){
+            let b1=Number(document.getElementById('odd1').value);
+            let b2=Number(document.getElementById('odd2').value);
+            let oddnum1='';
+            for(;b1<=b2;b1++){
+                if(b1%2!=0){
+                    oddnum1+=b1+"<br>";
+                }
+            }
+            for(;b2<=b1;b2++){
+                if(b2%2!=0){
+                oddnum1+=b2+"<br>";
+            }
+            }
+            document.getElementById('oddreslut1').innerHTML=oddnum1;
+        }
+        function reversenum1(){
+            let rev1=Number(document.getElementById('text11').value);
+            let revno1=rev1.toString().split('').reverse().join('');
+            document.getElementById('answer101').innerHTML=revno1;
+        }
+    </script>
+</div><br><br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h3>FIBONNACI SERIES</h3><br>
+            <input type="number" class="form-control" id="fibonum1"/><br><br>
+            <button class="btn btn-light" onclick="fibonac1()">-SUBMIT-</button><br><br>
+            <p id="fibono1"></p>
+        </div>
+        <div class="col">
+            <h3>ARMSTRONG NUMBER</h3><br>
+            <input type="number" class="form-control" id="arms1"/><br><br>
+            <button class="btn btn-primary" onclick="armstrong()">Calc.</button><br><br>
+            <p id="armsno1"></p>
+        </div>
+        <div class="col">
+            <h3>PRIME NUMBER</h3><br>
+            <input type="number" class="form-control" id="prime11" placeholder="enter the number"/><br>
+            <button class="btn btn-danger" onclick="primeno()">-VERIFY-</button><br><br>
+            <input type="text" class="form-control" id="primeans" placeholder="ANSWER" disabled/>
+        </div>
+        <div class="col">
+            <h3>POWER THE NUMBER</h3><br>
+            Enter the Base_Number:<input type="number" class="form-control" id="powerno1"/><br>
+            Enter the Power_Number:<input type="number" class="form-control" id="powerno2"/><br>
+            <button class="btn btn-warning" onclick="powernum()">|-EVOLVE-|</button><br><br>
+            <p id="powans"></p>
+        </div>
+    </div>
+    <script>
+        function powernum(){
+            let p1=Number(document.getElementById('powerno1').value);
+            let p2=Number(document.getElementById('powerno2').value);
+            // let powerresult1=Math.pow(p1,p2);
+            powerresult1=p1**p2;
+            if(p1===0 && p2===0){
+                powerresult1="Zero Value"
+            }
+            document.getElementById('powans').innerHTML=powerresult1;
+        }
+        function primeno(){
+            let pno=Number(document.getElementById('prime11').value);
+            let presult1='';
+            if(pno%2!=0 && pno%3!=0){
+                presult1="it is Prime number";
+            }else if(pno===0){
+                presult1="No Result"
+            }else{
+                presult1="it is Not Prime Number";
+            }
+            document.getElementById('primeans').value=presult1;
+        }
+        function armstrong(){
+            let a11=Number(document.getElementById('arms1').value);
+            let e,x,d=0;
+            x=a11;
+            let armnum2='';
+            while(x>0){
+                e=x%10;
+                x=parseInt(x/10);
+                d=d+(e*e*e);
+            }
+            if(a11==d){
+                armnum2="IT IS ARMSTRONG NUMBER";
+            }else if(a11==0){
+                armnum2="ERROR"
+            }else{
+                armnum2="IT IS NOT ARMSTRONG NUMBER";
+            }
+            document.getElementById('armsno1').innerHTML=armnum2;
+        }
+        function fibonac1(){
+            let fib1=Number(document.getElementById('fibonum1').value);
+            let fiboresult1=0;
+            let fiboresult2=1;
+            let fibbonacci1='';
+            let fibnum11='';
+            for(let z=1;z<=fib1;z++){
+                fibbonacci1=fiboresult1+fiboresult2;
+                fiboresult1=fiboresult2;
+                fiboresult2=fibbonacci1;
+                console.log(fibbonacci1);
+                if(fibbonacci1!=0){
+                    fibnum11=fibbonacci1+"<br>";
+                }
+            }
+            // fibbonacci1="<br>"+fiboresult1;
+            document.getElementById('fibono1').innerHTML=fibnum11;
+        }
+    </script>
+</div>
+</body>
+</html>
