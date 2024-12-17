@@ -39,28 +39,32 @@
         </div>
     </div><br><br>
 <script>
+
     function loopwithrange(){
         let n1=Number(document.getElementById('numb1').value);
         let n2=Number(document.getElementById('numb2').value);
         let multi=Number(document.getElementById('multi11').value);
         let ans11='';
-        for(;n1<=n2;n1++){
-            ans11+=n1+"*"+multi+"="+n1*multi+"<br>";
-            if(n1==0 && multi==0){
-                ans11="ERROR";    
-            }
+        
+        if(n1==0 && n2==0 && multi==0){
+             ans11="ERROR"+"<br>";
         }
+        
+
+       for(;n1<=n2;n1++){
+            ans11+=n1+"*"+multi+"="+n1*multi+"<br>";
+        }
+
         for(;n2<=n1;n2++){
             ans11+=n2+"*"+multi+"="+n2*multi+"<br>";
-            if(n2==0 && multi==0){
-                ans11="ERROR";
-            }
-        }
-        // if(n1==0 && n2==0){
-        //     ans11="ERROR";
-        // }
-        document.getElementById('result21').innerHTML=ans11;
+         }
+        
+        console.log(n1+" "+n2+" "+multi);
+
+        document.getElementById('result21').innerHTML=ans11;=
+
     }
+    
     function multiloop(){
         let result12='';
         for(let i=1;i<=10;i++){
